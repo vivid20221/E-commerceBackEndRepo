@@ -52,25 +52,23 @@ router.post('/',  async (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
-  category.update(
-    {
-      name: req.body.name,
-    },
+  category.update(req.body, {
     where: {
       id: req.params.id,
     },
 
-  )
+})
 
 
 });
 
 router.delete('/:id', async (req, res) => {
   // delete a category by its `id` valuetry {
+    try{
     const categoryData = await Category.destroy({
       where: {
-        id: req.params.id,
-      },
+        id: req.params.id
+      }
     });
       if(!categoryData) {
         res.status(404).json({message: 'no category data found with that id!' });

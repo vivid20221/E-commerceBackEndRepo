@@ -13,16 +13,6 @@ ProductTag.init(
       primaryKey: true,
       autoIncrement: true
     },
-    product_price: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: true
-      
-    },
-    product_stock:{
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: true
-
-    },
     category_id:{
       type: DataTypes.INTEGER,
       references: {
