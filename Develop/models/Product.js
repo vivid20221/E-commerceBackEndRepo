@@ -29,7 +29,16 @@ Product.init(
     product_stock:{
       type: DataTypes.DECIMAL(10, 2),
       allowNull: true
-    }  
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'category',
+        key: 'id'
+      }
+    }
+    // take a look at the mini project in the Trip.js model has a location_id which is a foreign key. This is how you will add your category_id 
   },
   {
     sequelize,
