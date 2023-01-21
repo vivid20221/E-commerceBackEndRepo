@@ -23,7 +23,7 @@ Product.belongsToMany(Tag, {
     unique: false
   },
   //change the id to match the right foreign key
-  as: 'category_id'
+  as: 'Category_id'
 })
 
 // Tags belongToMany Products (through ProductTag)
