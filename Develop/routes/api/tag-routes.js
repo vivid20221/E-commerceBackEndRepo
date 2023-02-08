@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Tag, Product, ProductTag, Category } = require('../../models');
+const { Product, ProductTag, Category } = require('../../models');
 
 // The `/api/tags` endpoint
 
@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
   try {
     const tagData = await tag.findByPk(req.params.id, {
       //through ProductTag because we used the ProductTag model to make a connection between the Product model and the Tag Model
-      include: [{ model: Product, through: ProductTag, as: 'tag_products'}]
+      include: [{ model: Product, through: ProductTag, as: 'product_tag'}]
 
     });
 
@@ -30,8 +30,6 @@ router.get('/:id', async (req, res) => {
       return;
 
     }
-
-    res.status(200).json(tagData);
   }catch (err) {
     res.status(500).json(err);
   }

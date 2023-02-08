@@ -13,19 +13,20 @@ Tag.init(
       primaryKey: true,
       autoIncrements: true
     },
-    name: {
+    tag_name: {
       type: DataTypes.STRING,
       allowNull: false
-
     }
+
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'tag',
+    modelName: 'category',
   }
 );
 
 module.exports = Tag;
+

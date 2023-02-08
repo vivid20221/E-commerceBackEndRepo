@@ -17,24 +17,25 @@ Product.init(
       autoINcrement: true
     },
     // define columns
-   name: {
+   product_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    product_price: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: true
-      
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+      isNumeric: true
     },
-    product_stock:{
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: true
+    price: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+      isFloat: true
     },
     category_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
       references: {
-        model: 'category',
+        model: 'category' ,
         key: 'id'
       }
     }
